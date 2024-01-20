@@ -1,0 +1,47 @@
+{
+  "name": "auth",
+  "version": "1.0.0",
+  "description": "Authentication microservices for social media",
+  "main": "index.ts",
+  "scripts": {
+    "lint": "eslint src/**/*.ts",
+    "prettier": "prettier --write ./src/**/*.ts",
+    "prettier:fix": "echo fix prittier",
+    "start:dev": "nodemon src/index.ts",
+    "start": "echo starting prod server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Haikal Javier Rachman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.5",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript-prettier": "^5.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "jest": "^29.7.0",
+    "prettier": "^2.8.0",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint .",
+      "prettier --write .",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
