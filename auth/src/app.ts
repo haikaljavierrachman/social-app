@@ -1,9 +1,12 @@
 import express from "express";
+import { json } from "body-parser";
+import routes from "./routes";
+
+const { signupRouters } = routes;
 
 const app = express();
 
-app.get("/", (req, res) => {
-    res.status(200).send();
-});
+app.use(json());
 
+app.use(signupRouters);
 export default app;
