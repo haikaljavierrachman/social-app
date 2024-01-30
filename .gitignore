@@ -46,7 +46,6 @@ web_module/
 
 .node_repl_history
 
-*.tgz
 
 .yarn-integrity
 
