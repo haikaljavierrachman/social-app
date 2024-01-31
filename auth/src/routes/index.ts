@@ -1,3 +1,3 @@
-import signupRouters from "./signup";
+import signupRouters from './signup';
 
 export default { signupRouters };
