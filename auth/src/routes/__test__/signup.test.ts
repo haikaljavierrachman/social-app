@@ -8,19 +8,16 @@ import app from '../../app';
 /**
  * Valid email condition:
  *  -- Standar email format from 'express-validator'
-*/ 
+ */
 describe('test validity of email input', () => {
   let password = '';
 
   beforeAll(() => {
-    password = 'Valid12valid12'
+    password = 'Valid12valid12';
   });
 
-  it('Should return 422 if the email is not provided',async () => {
-    await request(app)
-      .post('/api/auth/signup')
-      .send({password})
-      .expect(422);
+  it('Should return 422 if the email is not provided', async () => {
+    await request(app).post('/api/auth/signup').send({ password }).expect(422);
   });
 
   it('Should return 422 if the email not valid', async () => {
@@ -38,7 +35,6 @@ describe('test validity of email input', () => {
   // });
 });
 
-
 /**
  * Valid password condition:
  * - At least 8 character
@@ -46,19 +42,16 @@ describe('test validity of email input', () => {
  * - One uppercase letter
  * - One lowercase letter
  * - One number
- */ 
+ */
 describe('test validity of password input', () => {
   let email = '';
 
-  beforeAll(()  => {
-    email = 'test@test.com'
+  beforeAll(() => {
+    email = 'test@test.com';
   });
 
-  it('Should return 422 if password is not provided',async () => {
-    await request(app)
-    .post('/api/auth/signup')
-    .send({ email })
-    .expect(422);
+  it('Should return 422 if password is not provided', async () => {
+    await request(app).post('/api/auth/signup').send({ email }).expect(422);
   });
 
   it('Should return 422 if password contains less than 8 character', async () => {
@@ -71,7 +64,10 @@ describe('test validity of password input', () => {
   it('Should return 422 if password contains more than 32 character', async () => {
     await request(app)
       .post('/api/auth/signup')
-      .send({ email, password: 'valid12jkasxhkfkhfhfllsfsfshlffhlsahlfasjkgfugkeawfukg' })
+      .send({
+        email,
+        password: 'valid12jkasxhkfkhfhfllsfsfshlffhlsahlfasjkgfugkeawfukg',
+      })
       .expect(422);
   });
 
@@ -102,4 +98,4 @@ describe('test validity of password input', () => {
   //     .send({ email, password: 'Valid12valid12' })
   //     .expect(200);
   // });
-})
+});
