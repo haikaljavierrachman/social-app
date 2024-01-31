@@ -92,10 +92,10 @@ describe('test validity of password input', () => {
       .expect(422);
   });
 
-  // it('Should return 200 if password valid', async () => {
-  //   await request(app)
-  //     .post('/api/auth/signup')
-  //     .send({ email, password: 'Valid12valid12' })
-  //     .expect(200);
-  // });
+  it('Should return 200 if password valid', async () => {
+    await request(app)
+      .post('/api/auth/signup')
+      .send({ email, password: 'Valid12valid12' })
+      .expect(200);
+  });
 });
